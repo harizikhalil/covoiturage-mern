@@ -1,0 +1,24 @@
+.NbrPlace-container {
+  width: 200px;
+  height: auto;
+  padding: 20px;
+  border: 2px solid rgb(77, 47, 47);
+  border-radius: 5px;
+}
+button {
+  margin-left: 60px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #00959f;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+button .far {
+  margin-right: 5px;
+}
+.nbrplace-radio {
+  margin-right: 7px;
+}

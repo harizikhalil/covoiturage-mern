@@ -1,0 +1,6 @@
+.trajet-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(243, 237, 225);
+}

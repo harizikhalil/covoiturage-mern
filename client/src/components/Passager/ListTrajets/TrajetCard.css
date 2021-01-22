@@ -1,0 +1,39 @@
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 450px;
+  background-color: aliceblue;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 15px;
+  border-radius: 7px;
+  position: relative;
+}
+
+.Button-option {
+  display: flex;
+  flex-direction: column;
+}
+
+.Button-option .btn-details {
+  position: absolute;
+  top: -15px;
+  right: 7px;
+}
+
+.Button-option .res-btn {
+  position: absolute;
+  bottom: 4px;
+  right: 5px;
+}
+.res-btn,
+.btn-details {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  background-color: #00959f;
+  color: #fff;
+  outline: none;
+}

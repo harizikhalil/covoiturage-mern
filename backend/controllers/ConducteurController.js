@@ -24,12 +24,12 @@ module.exports = ConducteurController = {
       if (!car) {
         return res
           .status(400)
-          .json({ errors: ["You have to add a car befor you pass a trajet"] });
+          .json([{ msg: "You have to add a car befor you pass a trajet" }]);
       }
       if (trajet) {
         return res
           .status(400)
-          .json({ errors: ["You have  already one trajet in this day"] });
+          .json([{ msg: "You have  already one trajet in this day" }]);
       }
 
       trajet = new Trajet({
@@ -58,13 +58,13 @@ module.exports = ConducteurController = {
     //let user = await User.findById({ _id });
     const { marque, modele, coleur, NumMatricule, option } = req.body;
     if (req.user.role !== "conducteur") {
-      return res.status(400).json({ msg: "unauthorized" });
+      return res.status(400).json([{ msg: "unauthorized" }]);
     }
     let car = await Car.findOne({ NumMatricule });
     if (car) {
       return res
         .status(400)
-        .json({ errors: ["car with this matricule  already exists"] });
+        .json([{ msg: "car with this matricule  already exists" }]);
     }
     const options = Array.isArray(option)
       ? option
@@ -90,23 +90,23 @@ module.exports = ConducteurController = {
   deletecar: async (req, res) => {
     try {
       if (req.user.role !== "conducteur") {
-        return res.status(400).json({ msg: "unauthorized" });
+        return res.status(400).json([{ msg: "unauthorized" }]);
       }
       const car = await Car.findById(req.params.id);
       const trajet = await Trajet.findOne({ car: req.params.id });
       if (!car) {
-        return res.status(404).json({ msg: "car not found" });
+        return res.status(404).json([{ msg: "car not found" }]);
       }
       if (car.owner.toString() !== req.user.id) {
-        return res.status(401).json({ msg: "User not authorized" });
+        return res.status(401).json([{ msg: "User not authorized" }]);
       }
       if (trajet) {
         return res
           .status(400)
-          .json({ msg: "you have to remove trajet before remove car" });
+          .json([{ msg: "you have to remove trajet before remove car" }]);
       }
       await car.remove();
-      res.json({ msg: "car removed" });
+      res.json([{ idCar: car._id }]);
     } catch (error) {
       console.log(error);
       res.status(500).send({ errors: ["Server error"] });
@@ -125,8 +125,8 @@ module.exports = ConducteurController = {
         return res.status(401).json({ msg: "User not authorized" });
       }
       await User.updateMany({
-        $pull: { listeTrajet: { $in: [req.params.id] } },
-      }).select("listeTrajet");
+        $pull: { listeTrajet: { trajet: { $in: [req.params.id] } } },
+      });
       await trajet.remove();
       res.json({ msg: "trajet removed" });
     } catch (error) {
@@ -141,13 +141,13 @@ module.exports = ConducteurController = {
         //console.log(role);
         return res.status(400).json({ msg: "unauthorized" });
       }
-      let trajets = await Trajet.find({ conducteur: _id }).populate(
-        "car",
-        "modele"
-      );
+      let trajets = await Trajet.find({ conducteur: _id })
+        .populate("car", ["modele", "option"])
+        .populate("listeUsers.user", ["Name", "LastName", "avatar"])
+        .populate("conducteur", ["Name", "LastName", "avatar"]);
 
       if (trajets.length === 0) {
-        return res.status(400).json({ msg: "there is no trajet" });
+        return res.status(200).json([]);
       }
       res.json(trajets);
     } catch (error) {
@@ -162,9 +162,7 @@ module.exports = ConducteurController = {
         const cars = await Car.find({ owner: _id });
         // console.log(cars);
         if (cars.length === 0) {
-          return res
-            .status(404)
-            .json({ msg: "please add  cars before add trajet" });
+          return res.status(200).json([]);
         }
         res.send(cars);
       } else {

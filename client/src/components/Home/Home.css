@@ -1,0 +1,42 @@
+.home {
+  background: url(../../img/background.jpg) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  position: relative;
+}
+
+.home .home-container {
+  height: 100%;
+  text-align: center;
+}
+.home .content h1 {
+  position: absolute;
+  top: 10px;
+  left: 150px;
+  font-size: 60px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+.home .content h1::after {
+  content: "Bienvenu parmi nous";
+  animation: textanim 5s linear infinite;
+}
+@keyframes textanim {
+  60% {
+    content: "Trouver un covoiturage sur toute la Tunisie";
+  }
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1090px;
+  margin: auto;
+}
+
+.card-session {
+  background-color: #fff;
+  padding: 20px;
+}

@@ -1,0 +1,50 @@
+.home-card {
+  background-color: rgb(253, 253, 253);
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+  margin-top: 30px;
+  padding: 20px;
+  width: 350px;
+  border-radius: 5px;
+}
+.img-container {
+  text-align: center;
+}
+.button {
+  text-align: center;
+}
+.icon-style {
+  margin: 20px;
+  border-radius: 50%;
+  font-size: 20px;
+  border: 2px solid#7e7e7e;
+  padding: 5px;
+  color: #7e7e7e;
+}
+h2 {
+  color: #777272;
+}
+h2 span {
+  color: #871454;
+  font-weight: bold;
+}
+.btn button {
+  padding: 10px 20px;
+  margin: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  width: 300px;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  outline: none;
+}
+
+.btn-cond {
+  background-color: #9dbb2d;
+}
+.btn-pass {
+  background-color: #871454;
+}

@@ -1,0 +1,53 @@
+.dashboard {
+  display: flex;
+  width: 100%;
+}
+.profile {
+  width: 17%;
+  height: 700px;
+  text-align: center;
+  border-right: 2px solid rgb(190, 190, 185);
+}
+.dashbord-option {
+  margin: 20px;
+  width: 70%;
+}
+.dashboard-link {
+  background-color: #6b6b83;
+  border-radius: 10px;
+  padding: 13px;
+}
+.dashboard-link a {
+  padding: 13px;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+.profile-logo {
+  border-radius: 50%;
+  padding-top: 10px;
+  width: 150px;
+}
+.dashboard-link a:hover {
+  background-color: #3b8d99;
+}
+.selected {
+  background-color: #3b8d99;
+}
+.icon {
+  display: flex;
+  flex-direction: column;
+}
+.contact-profile {
+  display: flex;
+  justify-content: center;
+}
+.icon div {
+  margin-bottom: 20px;
+}
+.contact div {
+  margin-bottom: 20px;
+}
+.contact .email {
+  margin-left: 15px;
+}

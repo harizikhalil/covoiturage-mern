@@ -1,0 +1,91 @@
+.register-session,
+.login-session {
+  background: url(../../img/background.jpg) no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  position: relative;
+}
+.register-session {
+  padding-top: 15px;
+  height: 770px;
+}
+.login-session {
+  height: 550px;
+  padding-top: 120px;
+}
+.contact_container,
+.register_container {
+  background-color: #f8f4e5;
+  text-align: center;
+  width: 600px;
+  margin: auto;
+  border-radius: 4px;
+  padding: 10px;
+}
+.register_container {
+  height: 670px;
+}
+.register-form .input_text,
+.login-form .input_text {
+  width: 80%;
+  height: 10px;
+  margin: 10px 0;
+  border: none;
+  background-color: #f8f4e5;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  outline: none;
+  padding: 20px;
+  border-radius: 2px;
+  font-size: 12pt;
+}
+.login-form .btn,
+.btn-register {
+  width: 180px;
+  border: none;
+  background: #f45702;
+  color: white;
+  font-size: 16px;
+  letter-spacing: 2px;
+  transition: 0.2s all ease-in-out;
+  border-bottom: 2px solid transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.login-form .btn:hover,
+.btn-register:hover {
+  background: inherit;
+  color: #f45702;
+  border-bottom: 2px solid#f45702;
+}
+.btn-register {
+  float: right;
+  margin-top: 100px;
+}
+
+.form-header img {
+  width: 100px;
+  padding: 15px;
+}
+.select-role,
+.select-genre {
+  width: 150px;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.select-role {
+  margin-top: 10px;
+  margin-left: 53px;
+}
+.select-genre {
+  margin-left: 10px;
+}
+.selection-option {
+  float: left;
+  margin-left: 37px;
+}

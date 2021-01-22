@@ -18,7 +18,7 @@ const TrajetSchema = new mongoose.Schema({
     required: true,
   },
   NbrPlace: {
-    type: String,
+    type: Number,
     required: true,
   },
   LieuRencontre: {
@@ -45,6 +45,14 @@ const TrajetSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "car",
   },
+  listeUsers: [
+    {
+      user: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
+      NbrPlace: {
+        type: Number,
+      },
+    },
+  ],
 });
 
 module.exports = mongoose.model("trajet", TrajetSchema);

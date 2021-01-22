@@ -21,7 +21,7 @@ module.exports = userController = {
     try {
       let user = await User.findOne({ email });
       if (user) {
-        return res.status(400).json({ errors: ["User already exists"] });
+        return res.status(400).json([{ msg: "This user is already exists" }]);
       }
 
       const avatar = normalize(
@@ -55,7 +55,7 @@ module.exports = userController = {
 
       jwt.sign(payload, secret, (err, token) => {
         if (err) throw err;
-        res.json({
+        res.send({
           token: `Bearer ${token}`,
           user: {
             Name: user.Name,
@@ -63,13 +63,14 @@ module.exports = userController = {
             avatar: user.avatar,
             _id: user._id,
             comment: user.comment,
-            cars: user.cars,
+            role: user.role,
           },
         });
       });
     } catch (error) {
       console.log(error);
-      res.status(500).send({ errors: ["Server error"] }); //errors model [msg1 , msg2 ,...]
+      res.status(500).send([{ msg: "Server error" }]);
+      //errors model [msg1 , msg2 ,...]
     }
   },
   login: async (req, res) => {
@@ -77,19 +78,29 @@ module.exports = userController = {
     try {
       const searchResult = await User.findOne({ email });
       if (!searchResult)
-        return res.status(400).json({ errors: "Bad credentials !!" });
+        return res.status(400).json([{ msg: "email or password incorrect" }]);
       const isMatch = await bcrypt.compare(password, searchResult.password);
       if (!isMatch)
-        return res.status(400).json({ errors: "Bad credentials !" });
+        return res.status(400).json([{ msg: "email or password incorrect" }]);
       const paylaod = {
         id: searchResult._id,
-        name: searchResult.Name,
-        email: searchResult.email,
-        role: searchResult.role,
       };
       jwt.sign(paylaod, secret, (err, token) => {
         if (err) throw err;
-        res.json({ token: `Bearer ${token}` });
+        res.send({
+          token: `Bearer ${token}`,
+          user: {
+            Name: searchResult.Name,
+            LastName: searchResult.LastName,
+            email: searchResult.email,
+            avatar: searchResult.avatar,
+            role: searchResult.role,
+            _id: searchResult._id,
+            comment: searchResult.comment,
+            role: searchResult.role,
+            PhoneNumber: searchResult.PhoneNumber,
+          },
+        });
       });
     } catch (error) {
       res.status(500).json({ errors: error });
@@ -109,7 +120,7 @@ module.exports = userController = {
           car,
         });
       } else {
-        res.send(user);
+        res.send({ user });
       }
     } catch (error) {
       res.status(500).json({ errors: error });

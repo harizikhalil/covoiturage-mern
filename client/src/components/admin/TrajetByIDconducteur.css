@@ -1,0 +1,10 @@
+.trajets-conducteurs {
+  display: flex;
+}
+.list-trajtes {
+  margin-left: 70px;
+  margin-top: 10px;
+}
+.back_img img {
+  height: 670px;
+}

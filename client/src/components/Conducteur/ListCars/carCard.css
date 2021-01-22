@@ -1,0 +1,36 @@
+.btn-details .fas {
+  margin-right: 5px;
+}
+.list {
+  list-style: square;
+}
+.add-car .fas {
+  margin-right: 5px;
+}
+.car-form {
+  padding: 30px;
+  margin-top: 20px;
+  height: 400px;
+  width: 350px;
+  background-color: antiquewhite;
+}
+.car-form input {
+  width: 300px;
+  height: 40px;
+  text-align: center;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+.add-car-form {
+  text-align: center;
+}
+.btn-add-car {
+  background-color: #00959f;
+  cursor: pointer;
+  color: #fff;
+}
+.btn-add-car:hover {
+  background-color: #12a6b1;
+}

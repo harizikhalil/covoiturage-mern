@@ -1,0 +1,26 @@
+.passager-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aliceblue;
+  padding: 20px;
+  margin: 15px;
+  margin-left: 30px;
+  border-radius: 5px;
+  width: 700px;
+}
+.passager-info {
+  display: flex;
+}
+.passager-info span {
+  margin-right: 5px;
+}
+.passager-info img {
+  height: 40;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+.delete-psg {
+  background-color: rgb(214, 91, 91);
+}

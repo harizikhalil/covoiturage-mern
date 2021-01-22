@@ -45,7 +45,7 @@ const UserSchema = new mongoose.Schema({
     {
       trajet: { type: mongoose.Schema.Types.ObjectId, ref: "trajet" },
       NbrPlace: {
-        type: String,
+        type: Number,
       },
     },
   ],

@@ -1,0 +1,31 @@
+.conducteurItem-container {
+  position: relative;
+  background-color: aliceblue;
+  width: 600px;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 7px;
+}
+.conducteur-header {
+  display: flex;
+  align-items: center;
+}
+.conducteur-header img {
+  height: 40;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+.conducteur-info p {
+  margin: 0;
+}
+.conducteur-info {
+  margin-left: 30px;
+}
+
+.btn-del-conduct {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: rgb(216, 106, 106);
+}
