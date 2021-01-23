@@ -4,6 +4,7 @@ import { deleteCar } from "../../../JS/actions/conducteurAction";
 import DetailsCar from "./DetailsCar";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
+import { toast } from "react-toastify";
 const CarItem = ({ car }) => {
   const dispatch = useDispatch();
   const [showDetails, setShowDetails] = useState(false);
@@ -23,7 +24,9 @@ const CarItem = ({ car }) => {
         </div>
         <div className="Button-option">
           <button
-            onClick={() => dispatch(deleteCar(car._id))}
+            onClick={() => {
+              dispatch(deleteCar(car._id));
+            }}
             className="annuler-btn res-btn"
           >
             <i class="far fa-trash-alt"></i>

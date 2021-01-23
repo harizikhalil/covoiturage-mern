@@ -48,7 +48,7 @@ const FormCar = ({ addNewCar }) => {
           type="text"
           name="NumMatricule"
           className="input_text"
-          placeholder="Numero de la matricule"
+          placeholder="Numero de la immatriculation"
           onChange={handleChange}
           required
         />

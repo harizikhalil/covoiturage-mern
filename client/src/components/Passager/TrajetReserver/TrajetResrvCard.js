@@ -5,7 +5,7 @@ import { annulerTrajet } from "../../../JS/actions/passagerAction";
 import DetailsTrajet from "../ListTrajets/DetailsTrajet";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-
+import { toast } from "react-toastify";
 const TrajetResrvCard = ({ trajet }) => {
   const currentUser = useSelector((state) => state.authReducer.user);
   const dispatch = useDispatch();
@@ -19,6 +19,7 @@ const TrajetResrvCard = ({ trajet }) => {
   const onCloseModal = () => {
     setShow(false);
   };
+
   return (
     <React.Fragment>
       <div className="card-container">
@@ -30,7 +31,13 @@ const TrajetResrvCard = ({ trajet }) => {
         </div>
         <div className="Button-option">
           <button
-            onClick={() => dispatch(annulerTrajet(trajet._id))}
+            onClick={() => {
+              dispatch(annulerTrajet(trajet._id));
+              toast.success("trajet annuler", {
+                draggable: true,
+                position: toast.POSITION.TOP_RIGHT,
+              });
+            }}
             className="annuler-btn res-btn "
           >
             <i class="fas fa-eraser"></i>

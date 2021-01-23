@@ -18,27 +18,57 @@
   width: 1000px;
   margin-top: 140px;
   margin-left: 80px;
-  border: 1px solid black;
 }
 .user-info {
-  background-color: aliceblue;
+  background-color: rgb(208, 227, 243);
   padding: 20px;
   border-radius: 5px;
   height: 200px;
 }
 .comment-header {
-  margin-left: 250px;
+  margin-left: 230px;
+  padding: 30px;
+  border-radius: 7px;
+  background-color: rgb(236, 239, 243);
+}
+.comment-header-container {
+  background-color: rgb(156, 168, 204);
+  border-radius: 5px;
+  padding: 20px;
 }
 .comment-logo {
   display: flex;
   align-items: center;
+  border-radius: 15px;
+  background-color: rgb(208, 228, 236);
 }
 .comment-logo img {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   margin-right: 5px;
+  margin-left: 5px;
 }
 .comment-content p {
   margin: 0;
+}
+.btn-add-comment {
+  margin: 0;
+  padding: 9px;
+}
+.comment-header-container input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 9px;
+}
+.user-comment {
+  background-color: rgb(207, 187, 177);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 7px;
+}
+.user-comment .comment-text {
+  margin-top: 0;
+  margin-left: 18px;
 }

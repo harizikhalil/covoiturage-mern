@@ -23,7 +23,7 @@ const initialState = {
   allTrajets: null,
   TrajetsReserver: null,
   passagerLoading: false,
-  profile: {},
+  profile: null,
 };
 export default (state = initialState, { type, payload }) => {
   switch (type) {

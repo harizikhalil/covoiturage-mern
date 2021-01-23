@@ -21,8 +21,8 @@ const Home = () => {
         </div>
 
         {!isRegister ? (
-          <div className="card-session">
-            <div className="card-container">
+          <div className="card-session-home">
+            <div className="card-container-home">
               <CardPassager />
               <CardConducteur />
             </div>

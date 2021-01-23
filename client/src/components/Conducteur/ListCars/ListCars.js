@@ -47,7 +47,13 @@ const ListCars = () => {
   return (
     <div>
       {cars === null ? (
-        <h1>Loadiinnng....</h1>
+        <Loader
+          type="Bars"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={3000} //3 secs
+        />
       ) : cars.length === 0 ? (
         <h1>there is no cars</h1>
       ) : (

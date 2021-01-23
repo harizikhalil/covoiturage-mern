@@ -64,7 +64,9 @@ module.exports = ConducteurController = {
     if (car) {
       return res
         .status(400)
-        .json([{ msg: "car with this matricule  already exists" }]);
+        .json([
+          { msg: "il existe deja une voiture avec cette immatriculation" },
+        ]);
     }
     const options = Array.isArray(option)
       ? option

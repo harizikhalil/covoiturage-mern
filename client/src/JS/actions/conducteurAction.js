@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { toast } from "react-toastify";
 import {
   SET_LOADING_CARS,
   GET_CONDUCTEUR_CARS_FAIL,
@@ -58,12 +58,19 @@ export const addCar = (newcar) => async (dispatch) => {
       type: ADD_CAR_SUCCES,
       payload: res.data,
     });
+    toast.success("voiture ajouter", {
+      draggable: true,
+      position: toast.POSITION.TOP_RIGHT,
+    });
   } catch (error) {
     const response = error.response.data;
     // check if the response is an array and alert it
     if (Array.isArray(response)) {
       response.forEach((err) => {
-        alert(err.msg);
+        toast.info(err.msg, {
+          draggable: true,
+          position: toast.POSITION.TOP_RIGHT,
+        });
       });
     }
     dispatch({
@@ -90,12 +97,19 @@ export const deleteCar = (idCar) => async (dispatch) => {
       type: DELETE_CAR_SUCCES,
       payload: idCar,
     });
+    toast.success("voiture supprimer", {
+      draggable: true,
+      position: toast.POSITION.TOP_RIGHT,
+    });
   } catch (error) {
     const response = error.response.data;
     // check if the response is an array and alert it
     if (Array.isArray(response)) {
       response.forEach((err) => {
-        alert(err.msg);
+        toast.info(err.msg, {
+          draggable: true,
+          position: toast.POSITION.TOP_RIGHT,
+        });
       });
     }
     dispatch({
@@ -141,6 +155,10 @@ export const addTrajet = (idcar, newtrajet) => async (dispatch) => {
       newtrajet,
       config
     );
+    toast.success("trajet ajouter", {
+      draggable: true,
+      position: toast.POSITION.TOP_RIGHT,
+    });
     dispatch({
       type: ADD_CONDUCTEUR_TRAJET_SUCCES,
       payload: res.data,
@@ -172,7 +190,10 @@ export const deleteTrajet = (idTrajet) => async (dispatch) => {
       `/api/conducteur/deleteTrajet/${idTrajet}`,
       config
     );
-
+    toast.success("trajet supprimer", {
+      draggable: true,
+      position: toast.POSITION.TOP_RIGHT,
+    });
     dispatch({
       type: DELETE_TRAJET_CONDUCTEUR_SUCCES,
       payload: idTrajet,

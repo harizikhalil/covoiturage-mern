@@ -4,6 +4,8 @@ import { getProfileByID, addComment } from "../../JS/actions/passagerAction";
 import { useLocation } from "react-router-dom";
 import moment from "moment";
 import headerProfile from "../../img/headerProfile.jpg";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./Profile.css";
 const ProfileConducteur = (props) => {
   let location = useLocation();
@@ -17,14 +19,22 @@ const ProfileConducteur = (props) => {
     dispatch(getProfileByID(location.state.idProfile));
   }, [dispatch]);
 
-  if (!profile || passagerLoading) {
-    return <h1>Loading......</h1>;
+  if (profile === null || passagerLoading) {
+    return (
+      <Loader
+        type="Bars"
+        color="#00BFFF"
+        height={100}
+        width={100}
+        timeout={3000} //3 secs
+      />
+    );
   }
   const handlesubmit = (e) => {
     e.preventDefault();
     dispatch(addComment(text, profile._id));
   };
-  console.log(props.idProfile);
+  //console.log(props.idProfile);
   return (
     <div className="profile-container">
       <div className="header-profile">
@@ -42,8 +52,16 @@ const ProfileConducteur = (props) => {
           ) : null}
         </div>
         <div className="comment-header">
-          <input type="text" onChange={(e) => SetText(e.target.value)} />
-          <button onClick={handlesubmit}>add comment</button>
+          <div className="comment-header-container">
+            <input
+              type="text"
+              onChange={(e) => SetText(e.target.value)}
+              required
+            />
+            <button onClick={handlesubmit} className="btn-add-comment">
+              add comment
+            </button>
+          </div>
           <div className="comment-container">
             {profile.comment.length !== 0 ? (
               profile.comment.map((comment) => {
@@ -55,7 +73,7 @@ const ProfileConducteur = (props) => {
                         <p>{comment.name}</p>
                       </div>
                       <div className="comment-content">
-                        <p>{comment.text}</p>
+                        <p className="comment-text">{comment.text}</p>
                       </div>
                     </div>
                   </div>

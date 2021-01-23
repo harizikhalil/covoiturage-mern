@@ -28,7 +28,7 @@
   }
 }
 
-.card-container {
+.card-container-home {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,7 +36,7 @@
   margin: auto;
 }
 
-.card-session {
+.card-session-home {
   background-color: #fff;
   padding: 20px;
 }
