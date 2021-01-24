@@ -6,7 +6,7 @@
   "scripts": {
     "server": "npm run dev --prefix backend",
     "client": "npm start --prefix client",
-    "install": "npm install --prefix backend && npm install --prefix client",
+    "install": "npm install --prefix server && npm install --prefix client",
     "start": "npm start --prefix server",
     "heroku-postbuild": "npm run build --prefix client",
     "dev": "concurrently \" cd backend && npm run server \" \" cd client && npm start \""
