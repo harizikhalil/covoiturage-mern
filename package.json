@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "npm run dev --prefix backend",
-    "client": "npm start --prefix client",
-    "install": "npm install --prefix server && npm install --prefix client",
-    "start": "npm start --prefix server",
-    "heroku-postbuild": "npm run build --prefix client",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "start": "cd backend && node server.js",
+    "client": "cd client && npm start",
     "dev": "concurrently \" cd backend && npm run server \" \" cd client && npm start \""
   },
   "author": "khalil harizi",
