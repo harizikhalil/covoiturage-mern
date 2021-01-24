@@ -89,10 +89,7 @@ export const deleteCar = (idCar) => async (dispatch) => {
     type: SET_LOADING_CARS,
   });
   try {
-    const res = await axios.delete(
-      `/api/conducteur/deleteCar/${idCar}`,
-      config
-    );
+    await axios.delete(`/api/conducteur/deleteCar/${idCar}`, config);
     dispatch({
       type: DELETE_CAR_SUCCES,
       payload: idCar,
@@ -186,10 +183,7 @@ export const deleteTrajet = (idTrajet) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.delete(
-      `/api/conducteur/deleteTrajet/${idTrajet}`,
-      config
-    );
+    await axios.delete(`/api/conducteur/deleteTrajet/${idTrajet}`, config);
     toast.success("trajet supprimer", {
       draggable: true,
       position: toast.POSITION.TOP_RIGHT,

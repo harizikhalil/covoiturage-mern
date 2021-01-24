@@ -1,5 +1,4 @@
 import axios from "axios";
-//import { config } from "../../utils/Config";
 import { toast } from "react-toastify";
 import {
   GET_ALL_CONDUCTEURS,
@@ -127,7 +126,7 @@ export const deleteUser = (idUser) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.delete(`/api/admin/deleteUser/${idUser}`, config);
+    await axios.delete(`/api/admin/deleteUser/${idUser}`, config);
     dispatch({
       type: DELETE_USER_SUCCES,
       payload: idUser,
@@ -153,10 +152,7 @@ export const deleteTrajetAdmin = (idtrajet) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.delete(
-      `/api/admin/deleteTrajetadmin/${idtrajet}`,
-      config
-    );
+    await axios.delete(`/api/admin/deleteTrajetadmin/${idtrajet}`, config);
     dispatch({
       type: DELETE_TRAJET_SUCCES,
       payload: idtrajet,

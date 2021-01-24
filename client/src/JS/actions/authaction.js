@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   LOGIN_USER_SUCCESS,
@@ -7,7 +7,6 @@ import {
   REGISTER_USER,
   REGISTER_USER_FAIL,
   AUTH_FAIL,
-  LOGIN_USER,
   LOGIN_USER_FAIL,
   SET_LOADING,
   LOGOUT,

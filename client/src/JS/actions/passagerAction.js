@@ -1,6 +1,6 @@
 import axios from "axios";
 //import { config } from "../../utils/Config";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   GET_ALL_TRAJETS,
@@ -57,7 +57,7 @@ export const reserverTrajet = (idTrajet, NbrPlace) => async (dispatch) => {
     type: RESERVE_TRAJET,
   });
   try {
-    const res = await axios.post(
+    await axios.post(
       `/api/passager/reserverTrajet/${idTrajet}`,
       { NbrPlace },
       config
@@ -114,10 +114,7 @@ export const annulerTrajet = (idTrajet) => async (dispatch) => {
     },
   };
   try {
-    const res = await axios.delete(
-      `/api/passager/annulerTrajet/${idTrajet}`,
-      config
-    );
+    await axios.delete(`/api/passager/annulerTrajet/${idTrajet}`, config);
     dispatch({
       type: ANNULER_TRAJET_SUCCES,
       payload: idTrajet,

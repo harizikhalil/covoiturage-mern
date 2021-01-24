@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteTrajet } from "../../../JS/actions/conducteurAction";
 import moment from "moment";
 import DetailsTrajet from "../../Passager/ListTrajets/DetailsTrajet";

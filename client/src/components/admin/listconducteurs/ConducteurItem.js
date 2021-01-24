@@ -42,7 +42,7 @@ const ConducteurItem = ({ conducteur }) => {
           }}
         >
           <span>
-            voir trajets <i class="fas fa-external-link-square-alt"></i>
+            voir trajets <i className="fas fa-external-link-square-alt"></i>
           </span>
         </Link>
       </div>
@@ -50,7 +50,7 @@ const ConducteurItem = ({ conducteur }) => {
         onClick={() => dispatch(deleteUser(conducteur._id))}
         className="btn-del-conduct"
       >
-        <i class="far fa-trash-alt"></i>
+        <i className="far fa-trash-alt"></i>
         Delete
       </button>
     </div>
