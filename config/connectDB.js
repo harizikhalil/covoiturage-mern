@@ -6,7 +6,7 @@ const MONGO_URI = config.get("MONGO_URI");
 
 module.exports = connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI || MONGO_URI, {
+    await mongoose.connect(MONGO_URI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useFindAndModify: false,
