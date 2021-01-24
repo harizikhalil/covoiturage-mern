@@ -20,12 +20,13 @@ app.use("/api/passager", passagerRoute);
 app.use("/api/admin", adminRoute);
 
 if (process.env.NODE_ENV === "production") {
+  // Set static folder
   app.use(express.static(path.join(__dirname, "../client/build")));
+
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
   });
 }
-
 app.listen(PORT, () => {
   console.log(`Server is Running on PORT ${PORT}`);
 });
