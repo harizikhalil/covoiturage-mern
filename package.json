@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build":"cd client && npm run build",
-    "install-client":"cd client && npm install",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build",
-    "start": "concurrently \" cd backend && npm run server \" \" cd client && npm start \""
+    "server": "npm run dev --prefix backend",
+    "client": "npm start --prefix client",
+    "install": "npm install --prefix server && npm install --prefix client",
+    "start": "npm start --prefix server",
+    "heroku-postbuild": "npm run build --prefix client",
+    "dev": "concurrently \" cd backend && npm run server \" \" cd client && npm start \""
   },
   "author": "khalil harizi",
   "license": "ISC",

@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
+    "dev": "nodemon --exec node server.js",
     "server": "nodemon server"
   },
   "author": "khalil harizi",
