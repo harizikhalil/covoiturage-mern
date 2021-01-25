@@ -5,11 +5,12 @@ const ConducteurRoute = require("./routes/api/conducteur-route");
 const passagerRoute = require("./routes/api/passager-route");
 const adminRoute = require("./routes/api/admin-route");
 const path = require("path");
+const cors = require("cors");
 const app = express();
 
 //Connect Database
 connectDB();
-
+app.use(cors());
 app.use(express.json());
 
 //routes
