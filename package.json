@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "backend Side",
   "main": "server.js",
+  "engines": {
+    "node": "14.15.0"
+  },
   "scripts": {
     "start": "node server.js",
     "server":"nodemon server.js",
