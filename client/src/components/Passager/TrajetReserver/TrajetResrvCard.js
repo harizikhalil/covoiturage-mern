@@ -7,7 +7,6 @@ import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
 import { toast } from "react-toastify";
 const TrajetResrvCard = ({ trajet }) => {
-  const currentUser = useSelector((state) => state.authReducer.user);
   const dispatch = useDispatch();
   const [show, setShow] = useState(false);
 
@@ -40,11 +39,11 @@ const TrajetResrvCard = ({ trajet }) => {
             }}
             className="annuler-btn res-btn "
           >
-            <i class="fas fa-eraser"></i>
+            <i className="fas fa-eraser"></i>
             annuler
           </button>
           <button onClick={onOpenModal} className="btn-details">
-            <i class="fas fa-info-circle"></i> details
+            <i className="fas fa-info-circle"></i> details
           </button>
         </div>
       </div>

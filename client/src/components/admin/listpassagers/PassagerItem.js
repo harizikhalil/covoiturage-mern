@@ -31,7 +31,7 @@ const PassagerItem = ({ passager }) => {
           onClick={() => dispatch(deleteUser(passager._id))}
           className="delete-psg"
         >
-          <i class="far fa-trash-alt"></i>
+          <i className="far fa-trash-alt"></i>
           Delete
         </button>
       </div>

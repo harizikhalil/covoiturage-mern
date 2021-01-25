@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { deleteCar } from "../../../JS/actions/conducteurAction";
 import DetailsCar from "./DetailsCar";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
-import { toast } from "react-toastify";
 const CarItem = ({ car }) => {
   const dispatch = useDispatch();
   const [showDetails, setShowDetails] = useState(false);
@@ -29,11 +28,11 @@ const CarItem = ({ car }) => {
             }}
             className="annuler-btn res-btn"
           >
-            <i class="far fa-trash-alt"></i>
+            <i className="far fa-trash-alt"></i>
             Delete
           </button>
           <button onClick={openDetailsModal} className="btn-details">
-            <i class="fas fa-info-circle"></i>
+            <i className="fas fa-info-circle"></i>
             Details
           </button>
         </div>

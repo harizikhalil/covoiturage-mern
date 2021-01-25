@@ -6,7 +6,6 @@ import CardConducteur from "./CardConducteur";
 import Footer from "./Footer";
 const Home = () => {
   const isRegister = useSelector((state) => state.authReducer.isRegister);
-  const isAuth = useSelector((state) => state.authReducer.isRegister);
 
   return (
     <React.Fragment>

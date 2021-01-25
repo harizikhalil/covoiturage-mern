@@ -43,11 +43,11 @@ const TrajetItem = ({ trajet }) => {
             onClick={() => dispatch(deleteTrajetAdmin(trajet._id))}
             className="annuler-btn res-btn"
           >
-            <i class="far fa-trash-alt"></i>
+            <i className="far fa-trash-alt"></i>
             Delete
           </button>
           <button className="btn-details" onClick={onOpenModal}>
-            <i class="fas fa-info-circle"></i> Details
+            <i className="fas fa-info-circle"></i> Details
           </button>
         </div>
       </div>

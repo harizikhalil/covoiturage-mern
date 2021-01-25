@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { reserverTrajet } from "../../../JS/actions/passagerAction";
 import { Modal } from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
-import { Link } from "react-router-dom";
 import DetailsTrajet from "./DetailsTrajet";
 import SelectNbrPlace from "./SelectNbrPlace";
 import "./TrajetCard.css";
@@ -49,12 +48,12 @@ const TrajetCard = ({ trajet }) => {
         <div className="Button-option">
           {currentUser.role !== "admin" ? (
             <button onClick={onOpenModal} className="res-btn">
-              <i class="fas fa-calendar-check"></i> reserver
+              <i className="fas fa-calendar-check"></i> reserver
             </button>
           ) : null}
 
           <button onClick={viewDetails} className="btn-details">
-            <i class="fas fa-info-circle"></i> Details
+            <i className="fas fa-info-circle"></i> Details
           </button>
         </div>
       </div>

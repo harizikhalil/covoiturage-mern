@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../JS/actions/authaction";
 import { Redirect } from "react-router-dom";
 import covoit from "../../img/covoit.png";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./AuthFrom.css";
 const Register = () => {

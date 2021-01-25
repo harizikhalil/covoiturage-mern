@@ -12,7 +12,7 @@ const DetailsTrajet = ({ trajet }) => {
       <div className="details-header">
         <p className="details-title">
           {trajet.lieuDepart}
-          <i class="fas fa-long-arrow-alt-right"></i>
+          <i className="fas fa-long-arrow-alt-right"></i>
           {trajet.LieuArrivee}
         </p>
       </div>
@@ -45,7 +45,7 @@ const DetailsTrajet = ({ trajet }) => {
               return (
                 <li key={Math.random()}>
                   <span>
-                    <i class="far fa-check-circle"></i>
+                    <i className="far fa-check-circle"></i>
                   </span>
                   {option}
                 </li>

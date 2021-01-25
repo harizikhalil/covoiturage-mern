@@ -61,10 +61,10 @@ const Dashbord = ({ history }) => {
             <div className="contact-profile">
               <div className="icon">
                 <div>
-                  <i class="far fa-envelope"></i>
+                  <i className="far fa-envelope"></i>
                 </div>
                 <div>
-                  <i class="fas fa-phone-volume"></i>
+                  <i className="fas fa-phone-volume"></i>
                 </div>
               </div>
               <div className="contact">

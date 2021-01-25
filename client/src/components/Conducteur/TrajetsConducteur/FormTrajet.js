@@ -17,7 +17,6 @@ const FormTrajet = ({ addNewTrajet }) => {
     prix: "",
     DateDepart: "",
   });
-  const [value, onChange] = useState("10:00");
   const [startDate, setStartDate] = useState(new Date());
   const [carid, setCarId] = useState("");
   const handleChange = (e) => {
