@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const config = require("config");
 
-const MONGO_URI = config.get("MONGO_URI");
+const mongoURI = config.get("mongoURI");
 
 module.exports = connectDB = async () => {
   try {
-    await mongoose.connect(MONGO_URI, {
+    await mongoose.connect(mongoURI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useFindAndModify: false,
