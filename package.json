@@ -4,7 +4,8 @@
   "description": "backend Side",
   "main": "server.js",
   "engines": {
-    "node": "14.15.0"
+    "node": "14.15.0",
+    "npm":"6.14.8"
   },
   "scripts": {
     "start": "node server.js",
