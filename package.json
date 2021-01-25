@@ -4,8 +4,7 @@
   "description": "backend Side",
   "main": "server.js",
   "engines": {
-    "node": "14.15.0",
-    "npm": "6.14.8"
+    "node": "14.15.0"
   },
   "scripts": {
     "start": "npx nodemon server",
