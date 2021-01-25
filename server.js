@@ -10,7 +10,6 @@ const app = express();
 //Connect Database
 connectDB();
 
-const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 //routes
@@ -25,6 +24,7 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is Running on PORT ${PORT}`);
 });
