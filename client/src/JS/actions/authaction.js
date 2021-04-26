@@ -11,6 +11,12 @@ import {
   SET_LOADING,
   LOGOUT,
   GET_AUTH_USER,
+  DELETE_COMMENT,
+  DELETE_COMMENT_FAIL,
+  DELETE_COMMENT_SUCCES,
+  UPDATE_PROFILE,
+  UPDATE_PROFILE_FAIL,
+  UPDATE_PROFILE_SUCCES,
 } from "../const";
 
 //GET AUTH USER
@@ -103,7 +109,45 @@ export const login = (formData) => async (dispatch) => {
     });
   }
 };
+export const deleteComment = (idUser, idComment) => async (dispatch) => {
+  dispatch({
+    type: DELETE_COMMENT,
+  });
+  try {
+    let res = await axios.put(`/api/user/deleteComment/${idUser}/${idComment}`);
+    console.log("newUser", res);
+    dispatch({
+      type: DELETE_COMMENT_SUCCES,
+      payload: res.data,
+    });
+  } catch (error) {
+    dispatch({
+      type: DELETE_COMMENT_FAIL,
+    });
+  }
+};
+export const updateProfile = (formData) => async (dispatch) => {
+  dispatch({
+    type: UPDATE_PROFILE,
+  });
+  const config = {
+    headers: {
+      Authorization: localStorage.getItem("token"),
+    },
+  };
+  try {
+    const res = await axios.post("/api/user/updateProfile", formData, config);
 
+    dispatch({
+      type: UPDATE_PROFILE_SUCCES,
+      payload: res.data, // { user : {name , lastName , ... }}
+    });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_PROFILE_FAIL,
+    });
+  }
+};
 export const logout = () => async (dispatch) => {
   localStorage.removeItem("token");
   dispatch({

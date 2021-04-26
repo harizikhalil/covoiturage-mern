@@ -9,6 +9,9 @@ import {
   SET_LOADING,
   LOGOUT,
   GET_AUTH_USER,
+  UPDATE_PROFILE_FAIL,
+  UPDATE_PROFILE_SUCCES,
+  UPDATE_PROFILE,
 } from "../const";
 
 const initialState = {
@@ -24,6 +27,7 @@ export default (state = initialState, { type, payload }) => {
     case REGISTER_USER:
     case LOGIN_USER:
     case SET_LOADING:
+    case UPDATE_PROFILE:
       return { ...state, isLoading: true };
     case LOGIN_USER_SUCCESS:
       return {
@@ -34,6 +38,7 @@ export default (state = initialState, { type, payload }) => {
         user: payload.user,
         isRegister: true,
       };
+
     case LOGIN_USER_FAIL:
       return {
         ...state,
@@ -42,6 +47,10 @@ export default (state = initialState, { type, payload }) => {
         user: null,
         token: null,
       };
+    case UPDATE_PROFILE_SUCCES:
+      return { ...state, isLoading: false, user: payload };
+    case UPDATE_PROFILE_FAIL:
+      return { ...state, isLoading: false };
     case REGISTER_USER_SUCCESS:
       return {
         ...state,
@@ -50,6 +59,7 @@ export default (state = initialState, { type, payload }) => {
         token: payload.token,
         isLoading: false,
       };
+
     case REGISTER_USER_FAIL:
       return {
         ...state,

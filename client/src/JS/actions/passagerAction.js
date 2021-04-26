@@ -148,9 +148,6 @@ export const getProfileByID = (idUser) => async (dispatch) => {
 };
 
 export const addComment = (text, iduser) => async (dispatch) => {
-  dispatch({
-    type: ADD_COMMENT,
-  });
   const config = {
     headers: {
       Authorization: localStorage.getItem("token"),

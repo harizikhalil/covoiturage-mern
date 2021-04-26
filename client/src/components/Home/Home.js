@@ -1,6 +1,8 @@
 import React from "react";
 import "./Home.css";
 import { useSelector } from "react-redux";
+import HomeCarousel from "./HomeCarousel";
+import "bootstrap/dist/css/bootstrap.min.css";
 import CardPassager from "./CardPassager";
 import CardConducteur from "./CardConducteur";
 import Footer from "./Footer";
@@ -13,11 +15,7 @@ const Home = () => {
         className="home"
         style={isRegister ? { height: "700px" } : { height: "500px" }}
       >
-        <div className="home-container">
-          <div className="content">
-            <h1></h1>
-          </div>
-        </div>
+        <HomeCarousel />
 
         {!isRegister ? (
           <div className="card-session-home">

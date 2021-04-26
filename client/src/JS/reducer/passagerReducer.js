@@ -17,6 +17,9 @@ import {
   ADD_COMMENT_FAIL,
   ADD_COMMENT_SUCCES,
   ADD_COMMENT,
+  DELETE_COMMENT_FAIL,
+  DELETE_COMMENT_SUCCES,
+  DELETE_COMMENT,
 } from "../const";
 
 const initialState = {
@@ -33,6 +36,7 @@ export default (state = initialState, { type, payload }) => {
     case ANNULER_TRAJET:
     case GET_PROFILE:
     case ADD_COMMENT:
+    case DELETE_COMMENT:
       return { ...state, passagerLoading: true };
     case GET_ALL_TRAJETS_SUCCES:
       return { ...state, passagerLoading: false, allTrajets: payload };
@@ -43,6 +47,8 @@ export default (state = initialState, { type, payload }) => {
         TrajetsReserver: null,
         passagerLoading: false,
       };
+    case DELETE_COMMENT_SUCCES:
+      return { ...state, passagerLoading: false, profile: payload.user };
     case RESERVE_TRAJET_SUCCES:
       return {
         ...state,
@@ -57,6 +63,8 @@ export default (state = initialState, { type, payload }) => {
           (trajet) => trajet._id !== payload
         ),
       };
+    case DELETE_COMMENT_FAIL:
+      return { ...state, passagerLoading: false };
     case RESERVE_TRAJET_FAIL:
     case GET_TRAJETS_RESERVER_FAIL:
     case ANNULER_TRAJET_FAIL:

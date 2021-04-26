@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProfileByID, addComment } from "../../JS/actions/passagerAction";
+import { deleteComment } from "../../JS/actions/authaction";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import moment from "moment";
-import headerProfile from "../../img/headerProfile.jpg";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./Profile.css";
@@ -15,6 +16,7 @@ const ProfileConducteur = (props) => {
     (state) => state.passagerReducer.passagerLoading
   );
   const profile = useSelector((state) => state.passagerReducer.profile);
+  const user = useSelector((state) => state.authReducer.user);
   useEffect(() => {
     dispatch(getProfileByID(location.state.idProfile));
   }, [dispatch]);
@@ -38,18 +40,34 @@ const ProfileConducteur = (props) => {
   return (
     <div className="profile-container">
       <div className="header-profile">
-        <img src={headerProfile} alt="headerphoto" />
+        <img
+          src="https://www.zipjob.com/blog/wp-content/uploads/2020/08/linkedin-default-background-cover-photo-1.png"
+          alt="headerphoto"
+        />
       </div>
       <img src={profile.avatar} alt="avatar" className="avatar-user" />
       <div className="user-section">
         <div className="user-info">
-          <p>Name : {profile.Name}</p>
-          <p>email : {profile.email}</p>
-          <p>Phone Number: {profile.PhoneNumber}</p>
-          <p>enregistrer : {moment(profile.date).calendar()}</p>
-          {profile.listeTrajet.length !== 0 ? (
-            <p>Nbr de trajets reserver : {profile.listeTrajet.length} </p>
-          ) : null}
+          <div>
+            <h2 className="Name-profile">
+              {profile.Name + " " + profile.LastName}
+            </h2>
+            <div className="contact-profile">
+              <div className="icon">
+                <div>
+                  <i className="far fa-envelope"></i>
+                </div>
+                <div>
+                  <i className="fas fa-phone-volume"></i>
+                </div>
+              </div>
+              <div className="contact">
+                <div className="email">{profile.email}</div>
+                <div>{profile.PhoneNumber}</div>
+              </div>
+            </div>
+            <p>enregistrer : {moment(profile.date).calendar()}</p>
+          </div>
         </div>
         <div className="comment-header">
           <div className="comment-header-container">
@@ -69,8 +87,30 @@ const ProfileConducteur = (props) => {
                   <div className="comment" key={comment._id}>
                     <div className="user-comment">
                       <div className="comment-logo">
-                        <img src={comment.avatar} alt="avatar" />
+                        <Link
+                          to={{
+                            pathname: "/profile",
+                            state: { idProfile: comment.user },
+                          }}
+                        >
+                          <img src={comment.avatar} alt="avatar" />
+                        </Link>
                         <p>{comment.name}</p>
+                        {user._id === comment.user ? (
+                          <span
+                            style={{ marginLeft: "640px", cursor: "pointer" }}
+                            onClick={() =>
+                              dispatch(
+                                deleteComment(
+                                  location.state.idProfile,
+                                  comment._id
+                                )
+                              )
+                            }
+                          >
+                            <i class="fas fa-backspace"></i>
+                          </span>
+                        ) : null}
                       </div>
                       <div className="comment-content">
                         <p className="comment-text">{comment.text}</p>

@@ -1,6 +1,5 @@
 .register-session,
 .login-session {
-  background: url(../../img/background.jpg) no-repeat center;
   background-size: cover;
   background-attachment: fixed;
   background-position: bottom;

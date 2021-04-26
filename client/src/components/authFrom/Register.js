@@ -102,7 +102,7 @@ const Register = () => {
                   onChange={handleChange}
                 >
                   <option value="">Selectionez ...</option>
-                  <option>home</option>
+                  <option>homme</option>
                   <option>femme</option>
                 </select>
               </label>

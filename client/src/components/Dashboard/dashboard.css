@@ -6,7 +6,8 @@
   width: 17%;
   height: 700px;
   text-align: center;
-  border-right: 2px solid rgb(190, 190, 185);
+  border-right: 2px solid rgb(247, 247, 235);
+  background-color: rgb(253, 253, 253);
 }
 .dashbord-option {
   margin: 20px;

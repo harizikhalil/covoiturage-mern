@@ -127,15 +127,13 @@ module.exports = userController = {
     }
   },
   updateProfile: async (req, res) => {
-    const { Name, LastName, email, PhoneNumber, gender, role } = req.body;
+    const { Name, LastName, email, PhoneNumber } = req.body;
     try {
       let newuser = {
         Name,
         LastName,
         email,
         PhoneNumber,
-        gender,
-        role,
       };
       let user = await User.findOneAndUpdate(
         { _id: req.user._id },
@@ -145,6 +143,30 @@ module.exports = userController = {
       return res.json(user);
     } catch (error) {
       res.status(500).json({ errors: error });
+    }
+  },
+  deleteComment: async (req, res) => {
+    try {
+      await User.find({ _id: req.params.idUser }).updateOne({
+        $pull: { comment: { _id: { $in: [req.params.idComment] } } },
+      });
+      let user = await User.find({ _id: req.params.idUser });
+      res.json({
+        user: {
+          Name: user[0].Name,
+          LastName: user[0].LastName,
+          email: user[0].email,
+          avatar: user[0].avatar,
+          role: user[0].role,
+          _id: user[0]._id,
+          comment: user[0].comment,
+          role: user[0].role,
+          PhoneNumber: user[0].PhoneNumber,
+        },
+      });
+    } catch (error) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
     }
   },
 };

@@ -1,4 +1,0 @@
-{
-    "mongoURI":"mongodb+srv://harizi1919:azerty123@covoiturage-cluster.n31qo.mongodb.net/covoiturage-DB?retryWrites=true&w=majority",
-    "TokenSecret" : "TokenSecret"
-}
